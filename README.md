@@ -26,30 +26,30 @@ The project provides complete predictor code, pre-trained classifiers, and data 
 ```
 ProstEDTI/
 ├── Predictor/                # Core prediction module (end-users only need this folder)
-│   ├── models/              # Pre-trained models & classifiers (no retraining needed)
-│   │   ├── mol2vec/         # Pre-trained Mol2vec model (for drug feature extraction)
+│   ├── models/              
+│   │   ├── mol2vec/        
 │   │   ├── ProstT5/         # Placeholder: User downloads ProstT5 model here manually
-│   │   ├── best_model_lgb.pkl   # Trained LightGBM classifier (ensemble component)
-│   │   ├── best_model_xgb.pkl   # Trained XGBoost classifier (ensemble component)
-│   │   └── scaler.pkl           # MinMaxScaler (for feature normalization)
+│   │   ├── best_model_lgb.pkl   
+│   │   ├── best_model_xgb.pkl   
+│   │   └── scaler.pkl          
 │   ├── static/              
 │   ├── templates/           
 │   │   ├── index.html       
 │   │   ├── upload.html      
 │   │   ├── result.html      
 │   │   └── contact.html    
-│   ├── uploads/             # Temp storage for user-uploaded files (auto-cleaned)
+│   ├── uploads/             
 │   ├── app.py               # Flask entry (launches web service)
 │   └── requirements.txt    
 ├── Train/  # For researchers (model reconstruction/improvement)
-│   ├── 1_data preprocessing.py  # Merge BindingDB train/val/test sets
-│   ├── 2_drug feature extraction_mol2vec.py  # Generate 64D drug embeddings
-│   ├── 3_target feature extraction ProstT5.py # Generate 1024D target embeddings
-│   ├── 4_feature integration.py # Merge drug/target features into one matrix
+│   ├── 1_data preprocessing.py  
+│   ├── 2_drug feature extraction_mol2vec.py 
+│   ├── 3_target feature extraction ProstT5.py 
+│   ├── 4_feature integration.py 
 │   ├── 5_ENN_new.py             # ENN undersampling (balance training data)
 │   ├── 6_shap_analysis.py       # SHAP feature selection (top 200 from 1024D)
-│   ├── xgboost&lightgbm_10folds.py  # 10-fold cross-validation (train + tune)
-│   └── xgboost&lightgbm_test.py     # Evaluate pre-trained model on test set
+│   ├── xgboost&lightgbm_10folds.py  
+│   └── xgboost&lightgbm_test.py     
 ├── BindingDB/               # Original benchmark dataset
 ├── final_drug_smi/          
 ├── final_target_fasta/      
