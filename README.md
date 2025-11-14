@@ -142,7 +142,7 @@ For batch processing of large datasets, write a batch script in the "Predictor" 
 ## Contact & Support
 - **Contact The Author**: Hongjin Yan (Email: 1033220228@jiangnan.edu.cn)
 - **Research Team**: School of Artificial Intelligence and Computer Science, Jiangnan University, China
-- **Code Repository**: [https://github.com/example/ProstEDTI](https://github.com/YHJ3298/ProstEDTI) (replace with your actual GitHub repository URL)
+- **Code Repository**: [https://github.com/YHJ3298/ProstEDTI](https://github.com/YHJ3298/ProstEDTI) (replace with your actual GitHub repository URL)
 
 For issues with ProstT5 model download, prediction function bugs, or feature requests, submit an Issue on GitHub or contact the corresponding author directly for technical support.
 
