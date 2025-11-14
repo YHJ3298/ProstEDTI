@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction - ProstEDTI Drug-Target Interaction Prediction System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Shared Navigation Bar -->
+        <nav class="navbar">
+            <div class="navbar-container">
+                <a href="/" class="navbar-logo">ProstEDTI</a>
+                <div class="navbar-links">
+                    <a href="/" class="nav-link">Home</a>
+                    <a href="/predict" class="nav-link active">Prediction</a>
+                    <a href="/contact" class="nav-link">Contact Us</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Prediction Upload Area -->
+        <div class="predict-upload">
+            <h1 style="text-align: center; margin-bottom: 30px;">Drug-Target Interaction Prediction</h1>
+
+            <!-- Error Messages -->
+            {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                <div class="flash-messages">
+                  {% for message in messages %}
+                    <div class="alert">{{ message }}</div>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            {% endwith %}
+
+            <!-- Upload Form -->
+            <div class="upload-form">
+                <form method="POST" action="/predict" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="file"><i class="fas fa-file-csv mr-2"></i>Upload CSV File (must contain SMILES and Target Sequence columns):</label>
+                        <input type="file" id="file" name="file" accept=".csv" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-play-circle mr-2"></i>Start Prediction
+                    </button>
+                </form>
+            </div>
+
+            <!-- Usage Instructions -->
+            <div class="instructions">
+                <h3><i class="fas fa-info-circle mr-2"></i>Instructions</h3>
+                <ul>
+                    <li>Files must contain the following columns: <strong>SMILES</strong> (drug molecular structure) and <strong>Target Sequence</strong> (protein target sequence)</li>
+                    <li>It is recommended to upload ≤50 samples at a time to avoid GPU memory shortage (batch_size can be modified in multi-GPU environments)</li>
+                    <li>Processing time: ~10-20 seconds per sample (depending on GPU performance), please wait patiently</li>
+                    <li>If upload fails, check file encoding (UTF-8) or column name spelling</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Shared Footer -->
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-left">
+                    <h3>ProstEDTI</h3>
+                    <p>Drug-Target Interaction Prediction System</p>
+                    <p>© 2025 ProstEDTI. All rights reserved</p>
+                </div>
+                <div class="footer-middle">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/predict">Prediction</a></li>
+                        <li><a href="/contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-right">
+                    <h4>Social Media</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
