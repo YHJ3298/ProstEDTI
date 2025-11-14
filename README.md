@@ -43,7 +43,7 @@ ProstEDTI/
 │   ├── uploads/             # Temp storage for user-uploaded files (auto-cleaned)
 │   ├── app.py               # Flask entry (launches web service)
 │   └── requirements.txt     # Python dependencies for prediction
-├── Pre-training Related Scripts/  # For researchers (model reconstruction/improvement)
+├── Train/  # For researchers (model reconstruction/improvement)
 │   ├── 1_data preprocessing.py  # Merge BindingDB train/val/test sets
 │   ├── 2_drug feature extraction_mol2vec.py  # Generate 64D drug embeddings
 │   ├── 3_target feature extraction ProstT5.py # Generate 1024D target embeddings
