@@ -32,17 +32,15 @@ ProstEDTI/
 │   │   ├── best_model_lgb.pkl   # Trained LightGBM classifier (ensemble component)
 │   │   ├── best_model_xgb.pkl   # Trained XGBoost classifier (ensemble component)
 │   │   └── scaler.pkl           # MinMaxScaler (for feature normalization)
-│   ├── static/              # Static assets for unified web design
-│   │   └── css/
-│   │       └── style.css    # Global styles (unified head/nav/footer + page layouts)
-│   ├── templates/           # HTML pages (all with unified head/nav/footer)
-│   │   ├── index.html       # Homepage (hero area + system intro + technical framework)
-│   │   ├── upload.html      # Prediction upload page (file input + usage guide)
-│   │   ├── result.html      # Prediction results page (optimized long-text display)
-│   │   └── contact.html     # Contact page (team info + GitHub + institution details)
+│   ├── static/              
+│   ├── templates/           
+│   │   ├── index.html       
+│   │   ├── upload.html      
+│   │   ├── result.html      
+│   │   └── contact.html    
 │   ├── uploads/             # Temp storage for user-uploaded files (auto-cleaned)
 │   ├── app.py               # Flask entry (launches web service)
-│   └── requirements.txt     # Python dependencies for prediction
+│   └── requirements.txt    
 ├── Train/  # For researchers (model reconstruction/improvement)
 │   ├── 1_data preprocessing.py  # Merge BindingDB train/val/test sets
 │   ├── 2_drug feature extraction_mol2vec.py  # Generate 64D drug embeddings
@@ -53,15 +51,15 @@ ProstEDTI/
 │   ├── xgboost&lightgbm_10folds.py  # 10-fold cross-validation (train + tune)
 │   └── xgboost&lightgbm_test.py     # Evaluate pre-trained model on test set
 ├── BindingDB/               # Original benchmark dataset
-├── final_drug_smi/          # Processed drug SMILES (output of data preprocessing)
-├── final_target_fasta/      # Processed target FASTA (output of data preprocessing)
-├── mol2vec_ProstT5_train_enn.csv  # Balanced training features (post-ENN)
-├── mol2vec_ProstT5_test.csv   # Test features (pre-SHAP)
+├── final_drug_smi/          
+├── final_target_fasta/      
+├── mol2vec_ProstT5_train_enn.csv  
+├── mol2vec_ProstT5_test.csv   
 ├── enn_train_ProstT5_shap.csv # Final training features (post-SHAP, 264D)
 ├── enn_test_ProstT5_shap.csv  # Final test features (post-SHAP, 264D)
-├── shap_feature_importance_bar.png  # SHAP global feature importance (bar plot)
-├── shap_feature_summary_beeswarm.png # SHAP feature distribution (beeswarm plot)
-└── README.md                # Project documentation
+├── shap_feature_importance_bar.png  
+├── shap_feature_summary_beeswarm.png 
+└── README.md                
 ```
 
 ### Key File Usage Distinction
