@@ -25,26 +25,43 @@ The project provides complete predictor code, pre-trained classifiers, and data 
 ## Directory Structure & File Description
 ```
 ProstEDTI/
-├── Predictor/                # Core prediction code (only this folder is needed for testing/prediction)
-│   ├── models/              # Pre-trained classifiers and normalizer (no retraining required)
-│   │   ├── mol2vec/         # Pre-trained Mol2vec model (model.pkl for drug feature extraction)
-│   │   ├── best_model_lgb.pkl   # Trained LightGBM classifier
-│   │   ├── best_model_xgb.pkl   # Trained XGBoost classifier
-│   │   └── scaler.pkl           # Feature normalizer (MinMaxScaler)
-│   ├── static/              # Static assets for web interface (CSS style files)
-│   ├── templates/           # HTML templates for web interface (homepage/upload/results page)
-│   ├── app.py               # Flask web service entry (launches the prediction web interface)
-│   └── requirements.txt     # Dependency list for prediction functionality
-├── Pre-training Related Scripts/  # Scripts for model pre-training and data preprocessing (only for model reconstruction; not needed for prediction)
-│   ├── 1_data preprocessing.py  # Data preprocessing (integrates BindingDB dataset, splits samples)
-│   ├── 2_drug feature extraction_mol2vec.py  # Drug feature extraction (Mol2vec molecular embedding)
-│   ├── 3_target feature extraction ProstT5.py # Target feature extraction (ProstT5 sequence-structure embedding)
-│   ├── 4_feature integration.py # Feature integration (merges drug and target features)
-│   ├── 5_ENN_new.py             # ENN undersampling (balances positive/negative samples in training set)
-│   ├── 6_shap_analysis.py       # SHAP feature dimensionality reduction (selects key features)
-│   ├── xgboost&lightgbm_10folds.py  # 10-fold cross-validation (model training and hyperparameter optimization)
-│   └── xgboost&lightgbm_test.py     # Independent testing of pre-trained models (performance evaluation)
-└── README.md                # Project documentation (this file)
+├── Predictor/                # Core prediction module (end-users only need this folder)
+│   ├── models/              # Pre-trained models & classifiers (no retraining needed)
+│   │   ├── mol2vec/         # Pre-trained Mol2vec model (for drug feature extraction)
+│   │   ├── ProstT5/         # Placeholder: User downloads ProstT5 model here manually
+│   │   ├── best_model_lgb.pkl   # Trained LightGBM classifier (ensemble component)
+│   │   ├── best_model_xgb.pkl   # Trained XGBoost classifier (ensemble component)
+│   │   └── scaler.pkl           # MinMaxScaler (for feature normalization)
+│   ├── static/              # Static assets for unified web design
+│   │   └── css/
+│   │       └── style.css    # Global styles (unified head/nav/footer + page layouts)
+│   ├── templates/           # HTML pages (all with unified head/nav/footer)
+│   │   ├── index.html       # Homepage (hero area + system intro + technical framework)
+│   │   ├── upload.html      # Prediction upload page (file input + usage guide)
+│   │   ├── result.html      # Prediction results page (optimized long-text display)
+│   │   └── contact.html     # Contact page (team info + GitHub + institution details)
+│   ├── uploads/             # Temp storage for user-uploaded files (auto-cleaned)
+│   ├── app.py               # Flask entry (launches web service)
+│   └── requirements.txt     # Python dependencies for prediction
+├── Pre-training Related Scripts/  # For researchers (model reconstruction/improvement)
+│   ├── 1_data preprocessing.py  # Merge BindingDB train/val/test sets
+│   ├── 2_drug feature extraction_mol2vec.py  # Generate 64D drug embeddings
+│   ├── 3_target feature extraction ProstT5.py # Generate 1024D target embeddings
+│   ├── 4_feature integration.py # Merge drug/target features into one matrix
+│   ├── 5_ENN_new.py             # ENN undersampling (balance training data)
+│   ├── 6_shap_analysis.py       # SHAP feature selection (top 200 from 1024D)
+│   ├── xgboost&lightgbm_10folds.py  # 10-fold cross-validation (train + tune)
+│   └── xgboost&lightgbm_test.py     # Evaluate pre-trained model on test set
+├── BindingDB/               # Original benchmark dataset
+├── final_drug_smi/          # Processed drug SMILES (output of data preprocessing)
+├── final_target_fasta/      # Processed target FASTA (output of data preprocessing)
+├── mol2vec_ProstT5_train_enn.csv  # Balanced training features (post-ENN)
+├── mol2vec_ProstT5_test.csv   # Test features (pre-SHAP)
+├── enn_train_ProstT5_shap.csv # Final training features (post-SHAP, 264D)
+├── enn_test_ProstT5_shap.csv  # Final test features (post-SHAP, 264D)
+├── shap_feature_importance_bar.png  # SHAP global feature importance (bar plot)
+├── shap_feature_summary_beeswarm.png # SHAP feature distribution (beeswarm plot)
+└── README.md                # Project documentation
 ```
 
 ### Key File Usage Distinction
