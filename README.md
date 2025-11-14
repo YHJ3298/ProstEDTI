@@ -94,7 +94,7 @@ The "Predictor/models/" directory already contains the following pre-trained fil
 
 ### 2. ProstT5 Model Acquisition (Not Uploaded to GitHub; Download Manually)
 Due to the large size of the ProstT5 model (>10GB), it is not uploaded to GitHub. Users must download it from the official Hugging Face repository. Follow these steps:
-1. Visit the official ProstT5 Hugging Face repository: [mheinzinger/ProstT5](https://huggingface.co/mheinzinger/ProstT5)
+1. Visit the official ProstT5 Hugging Face repository: [mheinzinger/ProstT5](https://huggingface.co/Rostlab/ProstT5)
 2. Download all complete model files (including `config.json`, `pytorch_model.bin`, `tokenizer.json`, etc.)
 3. Create a new `ProstT5` folder under "Predictor/models/" and place all downloaded model files directly in this folder
 4. Verify the path: `Predictor/models/ProstT5/` (ensure model files are stored directly in this path with no additional subdirectories)
@@ -153,7 +153,7 @@ ProstEDTI: Achieving High-Precision Prediction of Drug-Target Interactions Using
 ## Contact & Support
 - **Corresponding Author**: Qiao Ning (Email: ningq669@jiangnan.edu.cn)
 - **Research Team**: School of Artificial Intelligence and Computer Science, Jiangnan University, China
-- **Code Repository**: [https://github.com/example/ProstEDTI](https://github.com/example/ProstEDTI) (replace with your actual GitHub repository URL)
+- **Code Repository**: [https://github.com/example/ProstEDTI](https://github.com/YHJ3298/ProstEDTI) (replace with your actual GitHub repository URL)
 
 For issues with ProstT5 model download, prediction function bugs, or feature requests, submit an Issue on GitHub or contact the corresponding author directly for technical support.
 
