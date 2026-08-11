@@ -1,0 +1,2 @@
+﻿Model,Training_Mode,Threshold,Top_Protein_K,Drug_Feature_Dim,Selected_Base_Feature_Dim,Prior_Feature_Dim,Final_Feature_Dim,Train_N_Before_ENN,Train_N_After_ENN,Test_N,SN,SP,ACC,MCC,AUC,AUPR,TP,FP,FN,TN
+FullTrain_SHAP320_PseudoWkNNIR_PU_ENN_XGBLGBM,full_training_set_final_model,0.5,320,64,384,11,395,19789,18944,4948,0.7882454624027658,0.9300975995779478,0.896928051738076,0.7140999055097762,0.9420479564596769,0.8424609172465906,912,265,245,3526

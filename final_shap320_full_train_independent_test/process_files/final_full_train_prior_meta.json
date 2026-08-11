@@ -1,0 +1,12 @@
+{
+  "n_train_samples_for_prior": 19789,
+  "unique_drug_count": 5808,
+  "unique_target_count": 1173,
+  "unique_pair_count": 19508,
+  "train_positive_rate": 0.23376623376623376,
+  "k_drug": 10,
+  "k_target": 10,
+  "hash_decimals": 6,
+  "drug_repeat_ratio": 0.706503613118399,
+  "target_repeat_ratio": 0.9407246450048007
+}

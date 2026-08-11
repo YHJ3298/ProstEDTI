@@ -1,0 +1,80 @@
+{
+  "args": {
+    "train_input": "./mol2vec_ProstT5_train.csv",
+    "test_input": "./mol2vec_ProstT5_test.csv",
+    "output_root": "./final_shap320_full_train_independent_test",
+    "label_is_last_column": true,
+    "label_column": "label",
+    "top_protein_k": 320,
+    "shap_max_samples": 5000,
+    "shap_max_display": 30,
+    "save_shap_figures": true,
+    "enn_n_neighbors": 5,
+    "enn_kind_sel": "mode",
+    "prior_k_drug": 10,
+    "prior_k_target": 10,
+    "prior_hash_decimals": 6,
+    "prior_inner_folds": 3,
+    "use_pu_reliability": true,
+    "pu_suspicious_threshold": 0.75,
+    "pu_min_neg_weight": 0.5,
+    "pu_continuous_downweight": true,
+    "threshold": 0.5,
+    "random_state": 42,
+    "xgb_weight": 0.5,
+    "lgbm_weight": 0.5,
+    "model_compress": 3
+  },
+  "train_info": {
+    "path": "./mol2vec_ProstT5_train.csv",
+    "n_samples": 19789,
+    "n_features": 1088,
+    "label_column": "label",
+    "label_distribution": {
+      "1": 4626,
+      "0": 15163
+    }
+  },
+  "test_info": {
+    "path": "./mol2vec_ProstT5_test.csv",
+    "n_samples": 4948,
+    "n_features": 1088,
+    "label_column": "label",
+    "label_distribution": {
+      "1": 1157,
+      "0": 3791
+    }
+  },
+  "feature_pools": {
+    "drug_dim": 64,
+    "protein_dim": 1024,
+    "selected_base_dim": 384,
+    "prior_dim": 11,
+    "final_feature_dim": 395
+  },
+  "model_bundle": "final_shap320_full_train_independent_test/model/final_full_train_model_bundle.pkl",
+  "independent_test_metrics": {
+    "Model": "FullTrain_SHAP320_PseudoWkNNIR_PU_ENN_XGBLGBM",
+    "Training_Mode": "full_training_set_final_model",
+    "Threshold": 0.5,
+    "Top_Protein_K": 320,
+    "Drug_Feature_Dim": 64,
+    "Selected_Base_Feature_Dim": 384,
+    "Prior_Feature_Dim": 11,
+    "Final_Feature_Dim": 395,
+    "Train_N_Before_ENN": 19789,
+    "Train_N_After_ENN": 18944,
+    "Test_N": 4948,
+    "SN": 0.7882454624027658,
+    "SP": 0.9300975995779478,
+    "ACC": 0.896928051738076,
+    "MCC": 0.7140999055097762,
+    "AUC": 0.9420479564596769,
+    "AUPR": 0.8424609172465906,
+    "TP": 912,
+    "FP": 265,
+    "FN": 245,
+    "TN": 3526
+  },
+  "note": "Final model retrained on the entire training set after hyperparameters were fixed. Independent test set was used only for final transformation and evaluation."
+}

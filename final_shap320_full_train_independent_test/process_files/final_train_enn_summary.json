@@ -1,0 +1,18 @@
+{
+  "before_enn_counter": {
+    "1": 4626,
+    "0": 15163
+  },
+  "after_enn_counter": {
+    "0": 14318,
+    "1": 4626
+  },
+  "before_enn_n": 19789,
+  "after_enn_n": 18944,
+  "enn_n_neighbors": 5,
+  "enn_kind_sel": "mode",
+  "has_sample_indices": true,
+  "weight_after_enn_mean": 0.985770583152771,
+  "weight_after_enn_min": 0.5,
+  "weight_after_enn_max": 1.0
+}

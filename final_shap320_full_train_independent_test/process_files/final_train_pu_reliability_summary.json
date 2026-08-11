@@ -1,0 +1,12 @@
+{
+  "use_pu_reliability": true,
+  "pu_suspicious_threshold": 0.75,
+  "pu_min_neg_weight": 0.5,
+  "pu_continuous_downweight": true,
+  "n_negative": 15163,
+  "n_suspicious_negative": 888,
+  "suspicious_negative_ratio_in_negative": 0.05856360878454132,
+  "weight_mean": 0.9795808792114258,
+  "weight_min": 0.5,
+  "weight_max": 1.0
+}

@@ -1,0 +1,41 @@
+{
+  "args": {
+    "train_input": "./mol2vec_ProstT5_train.csv",
+    "output_root": "./final_shap320_cv_training",
+    "label_is_last_column": true,
+    "label_column": "label",
+    "top_protein_k": 320,
+    "shap_max_samples": 5000,
+    "shap_max_display": 30,
+    "save_fold_shap_importance": false,
+    "enn_n_neighbors": 5,
+    "enn_kind_sel": "mode",
+    "prior_k_drug": 10,
+    "prior_k_target": 10,
+    "prior_hash_decimals": 6,
+    "prior_inner_folds": 3,
+    "use_pu_reliability": true,
+    "pu_suspicious_threshold": 0.75,
+    "pu_min_neg_weight": 0.5,
+    "pu_continuous_downweight": true,
+    "threshold": 0.5,
+    "n_splits": 10,
+    "random_state": 42,
+    "xgb_weight": 0.5,
+    "lgbm_weight": 0.5,
+    "model_compress": 3
+  },
+  "data_info": {
+    "path": "./mol2vec_ProstT5_train.csv",
+    "n_samples": 19789,
+    "n_features": 1088,
+    "label_column": "label",
+    "label_distribution": {
+      "1": 4626,
+      "0": 15163
+    }
+  },
+  "pipeline": "SHAP320_PseudoWkNNIR_PU_ENN_XGBLGBM",
+  "drug_dim": 64,
+  "target_dim": 1024
+}
